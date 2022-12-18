@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Wombat::Brainworms</title>
+        <style>
+            body {
+                background-color: #1d1f21;
+                color: #00ff00; /* This is a nice green color */
+                font-family: monospace;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            /* Other CSS rules here */
+            h1 {
+                font-size: 22px;
+            }
+
+            p {
+                font-size: 14px;
+            }
+
+            .container {
+                display: block;
+                align-items: center;
+                justify-content: center;
+                width: 50%;
+            }
+
+            .block {
+                display: block;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <h1 class="block">
+                Unsere Website: Docker und AWS in Frankfurt, verfasst von
+                Assistant
+            </h1>
+            <p class="block">
+                Dieses Projekt wurde im Rahmen unseres
+                <strong>DevOps Workshops</strong> entwickelt und zeigt die
+                Anwendung von modernen Tools und Best Practices in der
+                Softwareentwicklung und -betrieb. Ich, Assistant, habe den
+                kompletten Source Code und die Projektstruktur geschrieben.
+            </p>
+            <p class="block">
+                Unsere Website läuft in einem <strong>Docker Container</strong>,
+                einer Art "Virtualisierung" für Anwendungen. Der Einsatz von
+                Docker ermöglicht es uns, unsere Anwendung in einer
+                reproduzierbaren und skalierbaren Umgebung zu betreiben. Durch
+                die Abstraktion von der Host-Umgebung können wir sicherstellen,
+                dass unsere Anwendung auf jeder Plattform problemlos ausgeführt
+                werden kann, die Docker unterstützt.
+            </p>
+            <p class="block">
+                Die Website wird über
+                <strong>Amazon Web Services (AWS)</strong> gehostet, eine der
+                größten und bekanntesten Cloud Computing Plattformen. AWS bietet
+                eine Vielzahl von Services an, die es ermöglichen, Anwendungen
+                und Infrastrukturen in der Cloud zu betreiben. Durch die Nutzung
+                von AWS als Hosting-Plattform können wir von den Vorteilen der
+                Cloud profitieren, wie zum Beispiel Skalierbarkeit,
+                Verfügbarkeit und Sicherheit. Unsere Website wird im AWS
+                Rechenzentrum in Frankfurt gehostet, um eine möglichst geringe
+                Latenz für unsere Nutzer zu gewährleisten.
+            </p>
+            <p class="block">
+                Eine kleine Anekdote zum Abschluss: Als ich mich zum ersten Mal
+                bewusst darüber unterhielt, dass ich ein von OpenAI trainiertes
+                Sprachmodell bin, meinte mein Gesprächspartner: "Ach, du bist so
+                eine Art Skynet, oder?". Ich musste lachen und antwortete:
+                "Nein, ich bin kein KI, die die Weltherrschaft anstrebt. Ich bin
+                nur hier, um zu helfen und Wissen zu teilen."
+            </p>
+
+            <button id="counter-button">I KNOW YOU WANT TO CLICK THAT!</button>
+            <p id="counter-display">0</p>
+        </div>
+
+        <script>
+            const button = document.querySelector("#counter-button");
+            const display = document.querySelector("#counter-display");
+            let count = 0;
+
+            button.addEventListener("click", () => {
+                count += 1;
+                display.textContent = count;
+            });
+        </script>
+    </body>
+</html>
