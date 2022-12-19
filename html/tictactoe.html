@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html">
+
+    <head>
+        <meta charset="UTF-8" />
+        <title>Document</title>
+        <link rel="stylesheet" type="text/css" href="/style/style.css" />
+    </head>
+    <style>
+        .board {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            grid-gap: 10px;
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+            background-color: lightgrey;
+        }
+
+        .square {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            font-weight: bold;
+            background-color: white;
+        }
+
+        .square:hover {
+            background-color: lightgrey;
+            cursor: pointer;
+        }
+
+        .x {
+            color: red;
+            background-color: lightpink;
+        }
+
+        .o {
+            color: blue;
+            background-color: lightblue;
+        }
+
+    </style>
+
+    <body>
+        <div class="divider">
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="ai-stories.html">KI-Geschichten</a>
+                <a href="tictactoe.html">TicTacToe</a>
+            </nav>
+        </div>
+        <div class="board">
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+        </div>
+
+        <script>
+            const squares = document.querySelectorAll('.square');
+            let currentPlayer = 'x';
+
+            for (const square of squares) {
+                square.addEventListener('click', (event) => {
+                    const target = event.currentTarget;
+                    if (target.textContent) {
+                        return;
+                    }
+                    target.textContent = currentPlayer;
+                    target.classList.add(currentPlayer);
+                    if (checkTie()) {
+                        alert('It\'s a tie!');
+                        resetGame();
+                    } else if (checkWin()) {
+                        alert(`Player ${currentPlayer} wins!`);
+                        resetGame();
+                    } else {
+                        currentPlayer = currentPlayer === 'x' ? 'o' : 'x';
+                    }
+                });
+            }
+
+            function checkWin() {
+                const winningCombinations = [
+                    [0, 1, 2],
+                    [3, 4, 5],
+                    [6, 7, 8],
+                    [0, 3, 6],
+                    [1, 4, 7],
+                    [2, 5, 8],
+                    [0, 4, 8],
+                    [2, 4, 6]
+                ];
+                for (const combination of winningCombinations) {
+                    if (
+                        squares[combination[0]].textContent === currentPlayer &&
+                        squares[combination[1]].textContent === currentPlayer &&
+                        squares[combination[2]].textContent === currentPlayer
+                    ) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+
+            function checkTie() {
+                for (const square of squares) {
+                    if (!square.textContent) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+
+            function resetGame() {
+                for (const square of squares) {
+                    square.textContent = '';
+                    square.classList.remove('x', 'o');
+                }
+                currentPlayer = 'x';
+            }
+
+        </script>
+
+
+    </body>
+
+    </html>
