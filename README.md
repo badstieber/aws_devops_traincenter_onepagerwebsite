@@ -19,6 +19,7 @@ First you need to tag your image
 - docker push username/reponame:latest
   - docker badstieber/reponame:latest
 
+
 ## Pull repo from aws
 
 SSH to aws machine, then
